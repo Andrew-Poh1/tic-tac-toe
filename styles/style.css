@@ -9,8 +9,14 @@
 .container{
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-width: 100px;
+}
+.player-move{
+  color: black;
+  font-size: 40px;
 }
 .box{
   display: grid;
