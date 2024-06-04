@@ -4,8 +4,9 @@ gameBoard = [
   ['', '', '']
 ]
 
-firstPlayer = true;
+let firstPlayer = true;
 
+let intervalId;
 
 function RenderBoard(){
   html = '';
@@ -50,43 +51,97 @@ function RenderBoard(){
 
 
 function PlayMove(className) {
+  clearInterval(intervalId);
   if (className === 'js-top-left'){
-    gameBoard[0][0] = PlayerMove();
-    RenderBoard();
+    if (gameBoard[0][0] !== ''){
+      document.querySelector('.js-error-text').innerHTML = 'box is already taken';
+    }
+    else{
+      gameBoard[0][0] = PlayerMove();
+      RenderBoard();
+      document.querySelector('.js-error-text').innerHTML = '';
+    }
   }
   else if(className === 'js-top-middle') {
-    gameBoard[0][1] = PlayerMove();
-    RenderBoard();
+    if (gameBoard[0][1] !== ''){
+      document.querySelector('.js-error-text').innerHTML = 'box is already taken';
+    }
+    else{
+      gameBoard[0][1] = PlayerMove();
+      RenderBoard();
+      document.querySelector('.js-error-text').innerHTML = '';
+    }
   }
   else if(className === 'js-top-right') {
-    gameBoard[0][2] = PlayerMove();
-    RenderBoard();
+    if (gameBoard[0][2] !== ''){
+      document.querySelector('.js-error-text').innerHTML = 'box is already taken';
+    }
+    else{
+      gameBoard[0][2] = PlayerMove();
+      RenderBoard();
+      document.querySelector('.js-error-text').innerHTML = '';
+    }
   }
   else if(className === 'js-middle-left') {
-    gameBoard[1][0] = PlayerMove();
-    RenderBoard();
+    if (gameBoard[1][0] !== ''){
+      document.querySelector('.js-error-text').innerHTML = 'box is already taken';
+    }
+    else{
+      gameBoard[1][0] = PlayerMove();
+      RenderBoard();
+      document.querySelector('.js-error-text').innerHTML = '';
+    }
   }
   else if(className === 'js-middle-middle') {
-    gameBoard[1][1] = PlayerMove();
-    RenderBoard();
+    if (gameBoard[1][1] !== ''){
+      document.querySelector('.js-error-text').innerHTML = 'box is already taken';
+    }
+    else{
+      gameBoard[1][1] = PlayerMove();
+      RenderBoard();
+      document.querySelector('.js-error-text').innerHTML = '';
+    }
   }
   else if(className === 'js-middle-right') {
-    gameBoard[1][2] = PlayerMove();
-    RenderBoard();
+    if (gameBoard[1][2] !== ''){
+      document.querySelector('.js-error-text').innerHTML = 'box is already taken';
+    }
+    else{
+      gameBoard[1][2] = PlayerMove();
+      RenderBoard();
+      document.querySelector('.js-error-text').innerHTML = '';
+    }
   }
   else if(className === 'js-bottom-left') {
-    gameBoard[2][0] = PlayerMove();
-    RenderBoard();
+    if (gameBoard[2][0] !== ''){
+      document.querySelector('.js-error-text').innerHTML = 'box is already taken';
+    }
+    else{
+      gameBoard[2][0] = PlayerMove();
+      RenderBoard();
+      document.querySelector('.js-error-text').innerHTML = '';
+    }
   }
   else if(className === 'js-bottom-middle') {
-    gameBoard[2][1] = PlayerMove();
-    RenderBoard();
+    if (gameBoard[2][1] !== ''){
+      document.querySelector('.js-error-text').innerHTML = 'box is already taken';
+    }
+    else{
+      gameBoard[2][1] = PlayerMove();
+      RenderBoard();
+      document.querySelector('.js-error-text').innerHTML = '';
+    }
   }
   else if(className === 'js-bottom-right') {
-    gameBoard[2][2] = PlayerMove();
-    RenderBoard();
+    if (gameBoard[2][2] !== ''){
+      document.querySelector('.js-error-text').innerHTML = 'box is already taken';
+    }
+    else{
+      gameBoard[2][2] = PlayerMove();
+      RenderBoard();
+      document.querySelector('.js-error-text').innerHTML = '';
+    }
   }
-  console.log(gameBoard);
 }
 
 function PlayerMove(){

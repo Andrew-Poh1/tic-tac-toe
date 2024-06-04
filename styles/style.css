@@ -18,6 +18,9 @@
   color: black;
   font-size: 40px;
 }
+.error-text{
+  color: red;
+}
 .box{
   display: grid;
   grid-template-columns: 1fr;
