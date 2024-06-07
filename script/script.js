@@ -6,8 +6,6 @@ gameBoard = [
 
 let firstPlayer = true;
 
-let intervalId;
-
 function RenderBoard(){
   html = '';
     html += `
@@ -51,7 +49,6 @@ function RenderBoard(){
 
 
 function PlayMove(className) {
-  clearInterval(intervalId);
   if (className === 'js-top-left'){
     if (gameBoard[0][0] !== ''){
       document.querySelector('.js-error-text').innerHTML = 'box is already taken';
@@ -142,6 +139,8 @@ function PlayMove(className) {
       document.querySelector('.js-error-text').innerHTML = '';
     }
   }
+  console.log(gameBoard);
+  console.log(CheckWins());
 }
 
 function PlayerMove(){
@@ -154,5 +153,80 @@ function PlayerMove(){
     firstPlayer = true;
     document.querySelector('.js-player-move').innerHTML = "It is X's move";
     return'O';
+  }
+}
+
+
+function CheckRows() {
+  if (gameBoard[0][0] === gameBoard[0][1] && gameBoard[0][0] === gameBoard[0][2] && gameBoard[0][0] !== ''){
+    let log = (`Player ${gameBoard[0][0]} wins!`);
+    return log;
+  }
+  else if(gameBoard[1][0] === gameBoard[1][1] && gameBoard[1][0] === gameBoard[1][2] && gameBoard[1][0] !== ''){
+    let log = (`Player ${gameBoard[1][0]} wins!`);
+    return log;
+  }
+  else if(gameBoard[2][0] === gameBoard[2][1] && gameBoard[2][0] === gameBoard[2][2] && gameBoard[2][0] !== '') {
+    let log = (`Player ${gameBoard[2][0]} wins!`);
+    return log;
+  }
+  else{
+    return false;
+  }
+}
+
+function CheckColumns() {
+  if (gameBoard[0][0] === gameBoard[1][0] && gameBoard[0][0] === gameBoard[2][0] && gameBoard[0][0] !== ''){
+    let log = (`Player ${gameBoard[0][0]} wins!`);
+    return log;
+  }
+  else if (gameBoard[0][1] === gameBoard[1][1] && gameBoard[0][1] === gameBoard[2][1] && gameBoard[0][1] !== ''){
+    let log = (`Player ${gameBoard[0][1]} wins!`);
+    return log;
+  }
+  else if (gameBoard[0][2] === gameBoard [1][2] && gameBoard[0][2] === gameBoard[2][2] && gameBoard[0][2] !== ''){
+    let log = (`Player ${gameBoard[0][1]} wins!`);
+    return log;
+  }
+  else{
+    return false;
+  }
+}
+
+function CheckDiags() {
+  if (gameBoard[0][0] === gameBoard[1][1] && gameBoard[0][0] === gameBoard[2][2] && gameBoard[0][0] !== ''){
+    let log = (`Player ${gameBoard[0][0]} wins!`);
+    return log;
+  }
+  else if (gameBoard[0][2] === gameBoard[1][1] && gameBoard[0][2] === gameBoard[2][0] && gameBoard[0][2] !== ''){
+    let log = (`Player ${gameBoard[0][2]} wins!`);
+    return log;
+  }
+  else{
+    return false;
+  }
+}
+
+function CheckWins () {
+  let winner;
+
+  let rowWin = CheckRows();
+  let columnWin = CheckColumns();
+  let diagWin = CheckDiags();
+
+  if (rowWin !== false){
+    document.querySelector('.winner-text')
+      .innerHTML = CheckRows();
+  }
+  else if(columnWin !== false){
+    document.querySelector('.winner-text')
+      .innerHTML = CheckColumns();
+  }
+  else if (diagWin !== false){
+    document.querySelector('.winner-text')
+      .innerHTML = CheckDiags();
+  }
+  else{
+    return 'no winner yet';
   }
 }
