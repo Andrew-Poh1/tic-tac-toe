@@ -185,7 +185,7 @@ function CheckColumns() {
     return log;
   }
   else if (gameBoard[0][2] === gameBoard [1][2] && gameBoard[0][2] === gameBoard[2][2] && gameBoard[0][2] !== ''){
-    let log = (`Player ${gameBoard[0][1]} wins!`);
+    let log = (`Player ${gameBoard[0][2]} wins!`);
     return log;
   }
   else{
