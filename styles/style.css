@@ -46,3 +46,14 @@
 .top-left, .middle-left, .bottom-left, .top-middle, .middle-middle, .bottom-middle{
   border-right: 3px solid grey;
 }
+.reset-button{
+  background-color: rgb(102, 102, 102);
+  border: none;
+  border-radius: 20px;
+  color: black;
+  padding: 10px 126px;
+  margin-top: 20px;
+  margin-right: 1px;
+  font-size: 20px;
+  
+}
