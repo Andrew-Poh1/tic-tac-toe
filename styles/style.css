@@ -46,14 +46,21 @@
 .top-left, .middle-left, .bottom-left, .top-middle, .middle-middle, .bottom-middle{
   border-right: 3px solid grey;
 }
+.top-left, .top-middle, .top-right, .middle-left, .middle-middle, .middle-right, .bottom-left, .bottom-right, .bottom-left{
+  height: 130px;
+}
 .reset-button{
-  background-color: rgb(102, 102, 102);
+  background-color: rgb(0, 0, 0);
   border: none;
   border-radius: 20px;
-  color: black;
+  color: rgb(255, 255, 255);
   padding: 10px 126px;
   margin-top: 20px;
   margin-right: 1px;
   font-size: 20px;
-  
+  transition: background-color .05s, color .05s;
+}
+.reset-button:active{
+  background-color: white;
+  color: black;
 }

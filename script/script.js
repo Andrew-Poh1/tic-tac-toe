@@ -230,3 +230,16 @@ function CheckWins () {
     return 'no winner yet';
   }
 }
+
+function reset() {
+  gameBoard = [
+    ['', '', ''],
+    ['', '', ''],
+    ['', '', '']
+  ]
+  document.querySelector('.winner-text')
+    .innerHTML = '';
+    firstPlayer = false;
+    PlayerMove();
+  RenderBoard();
+}
